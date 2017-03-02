@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+<div class="header">
+    <h3>
+    Valence Aware Dictionary for sEntiment Reasoning (VADER)
+    </h3>
+    <h3>
+        A Parsimonious Rule-based Model for Sentiment Analysis (Convey Version)
+    </h3>
+</div>
+</div>
+
+<div class="container">
+
+    <form action="/edit/item" method="post" name="analyze">
+        <ul>
+            {% for entry in lexicon %}                
+                <a href="/edit/item/{{ entry }}">
+                    <li>
+                        word: {{ entry }} 
+                    </li>
+                 </a>
+            {% else %}
+                <li><em>Unbelievable.  No entries here so far</em></li>
+            {% endfor %}
+        </ul>
+        
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,4 @@
+#This file holds custom idioms
+#Following defination overwrite existing 'bad ass' value
+#bad ass	3
+up and down	-3.5

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+<div class="header">
+    <h3>
+    Valence Aware Dictionary for sEntiment Reasoning (VADER)
+    </h3>
+    <h3>
+        A Parsimonious Rule-based Model for Sentiment Analysis (Convey Version)
+    </h3>
+</div>
+</div>
+
+<div class="container">
+
+    <form action="/analyze" method="post" name="analyze">
+
+        <h4>Enter Your sentence</h4><br/>
+        <textarea name="sentence" rows="15" cols="100%"></textarea>
+        <br/>
+        <input type="submit" value="Analyze"/>
+    </form>
+</div>
+{% endblock %}

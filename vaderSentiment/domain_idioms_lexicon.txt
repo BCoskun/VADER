@@ -2,3 +2,4 @@
 #Following defination overwrite existing 'bad ass' value
 #bad ass	3
 up and down	-3.5
+got to	-1.0

@@ -7523,3 +7523,100 @@ down	-0.77
 up	0.66
 price	2.4
 #website	-0.6
+
+# Case 74353253
+talked	-0.0001
+
+# Case 74353201
+try	-0.1
+tried	-0.4
+yet	-0.1
+
+# Case 74353150
+please	0.3
+received	1
+because	-0.4
+
+# Case 74353136
+override	-2
+request	-0.1
+requested	-0.1
+early	-1
+
+# Case 74353111
+asked	-0.001
+
+# Case 74352660
+issue	-0.2
+occurring	0.2
+req	-1
+
+# Case 74321676, overwrite existing word
+pay	0
+
+# Case 74323779, 74330949
+provided	0.1
+provide	0.1
+
+# Case 74341412 (Low Income Subsity)
+lis	1
+
+# Case 74286111
+advised	1
+advise	1
+
+# Case 74318974
+
+confirm	-0.1
+confirmed	3
+
+activate	-0.1
+activated	2
+
+guide	-0.1
+guided	2
+
+#Case 74319120
+sent	2
+replacement	0.1
+
+#Case 74319772
+verified	0.2
+transferred	0.2
+corrected	0.5
+
+#Case 74322676
+charged	-0.1
+payment	0.1
+cc	0.1
+
+#Case 74330481
+# existing word "no" adjusted...
+no	-0.001
+day 	0.1
+days	1
+drugs	1
+
+# Case 74334780
+condolences	2
+
+# Case 74285598
+declined	-1
+
+#Case 74285654
+without	-1
+looking	0.1
+
+#Case 74311582		(Discuss with Giray)
+consider	-3
+stated	-0.1
+
+#Case 74322540 (Discuss with Giray)
+remember	1
+
+#Case 74323641
+deducted	-1
+retro	-1
+
+#Case 74329547 + Code Change for ****** Symbols
+attention	-2

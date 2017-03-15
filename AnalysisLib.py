@@ -1,6 +1,8 @@
 import SentimentAnalysis
 
-sentences = ["price went down",    # pos...  
+sentences = [
+            "*******ATTENTION DOCUMENT PROCESSING: prepare expense verification form from 2016/2017 to be sent to One exchange******************",
+            "price went down",    # pos...  
             "your website was down and I could not make a payment!",  
             "I was going all the way up and down",
             "I will be happy if price goes DOWN!"]

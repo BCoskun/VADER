@@ -32,7 +32,8 @@ N_SCALAR = -0.74
 REGEX_REMOVE_PUNCTUATION = re.compile('[%s]' % re.escape(string.punctuation))
 
 PUNC_LIST = [".", "!", "?", ",", ";", ":", "-", "'", "\"",
-             "!!", "!!!", "??", "???", "?!?", "!?!", "?!?!", "!?!?"]
+             "!!", "!!!", "??", "???", "?!?", "!?!", "?!?!", "!?!?","*"]
+   
 NEGATE = \
 ["aint", "arent", "cannot", "cant", "couldnt", "darent", "didnt", "doesnt",
  "ain't", "aren't", "can't", "couldn't", "daren't", "didn't", "doesn't",
@@ -142,6 +143,16 @@ def scalar_inc_dec(word, valence, is_cap_diff):
             else: scalar -= C_INCR
     return scalar
 
+
+def count_consecutive(w,c):
+    r = 0
+    for wc in w:
+        if wc == c:
+            r += 1
+        else:
+            break
+    return r
+
 class SentiText(object):
     """
     Identify sentiment-relevant string-level properties of input text.
@@ -175,6 +186,20 @@ class SentiText(object):
         words_punc_dict.update(punc_after)
         return words_punc_dict
 
+    def _remove_predefinedPatters(self,wes):
+        """
+        remove repeted "-" or "*"        
+        """
+        charlist= {"*":1,"-":3 }
+        
+        for i, we in enumerate(wes):        
+            for c in charlist.items():
+                r = count_consecutive(we,c[0]) 
+                if r > c[1]:
+                    removestring= c[0]*r
+                    wes[i] = wes[i].replace(removestring,"")
+        return wes
+
     def _words_and_emoticons(self):
         """
         Removes leading and trailing puncutation
@@ -182,6 +207,12 @@ class SentiText(object):
             Does not preserve punc-plus-letter emoticons (e.g. :D)
         """
         wes = self.text.split()
+
+        """
+        Bulent : Extending this code requrie to remove continues symbols. like ********
+        """        
+        wes = self._remove_predefinedPatters(wes);
+
         words_punc_dict = self._words_plus_punc()
         wes = [we for we in wes if len(we) > 1]
         for i, we in enumerate(wes):

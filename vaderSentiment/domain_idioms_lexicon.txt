@@ -3,3 +3,6 @@
 #bad ass	3
 up and down	-3.5
 got to	-1.0
+no love	-1
+no hate	2
+without looking	-2

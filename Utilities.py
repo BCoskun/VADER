@@ -8,6 +8,7 @@ import math, re, string, requests, json
 from itertools import product
 from inspect import getsourcefile
 from os.path import abspath, join, dirname
+import os
 
 
 class FileChangeEventHandler(PatternMatchingEventHandler):
@@ -25,7 +26,9 @@ class FileChangeEventHandler(PatternMatchingEventHandler):
         self.process(event)
 
 
-path = "./vaderSentiment"
+modulePath = os.path.dirname(__file__)
+path = "{}{}".format(modulePath, "/vaderSentiment")
+print("Change Monitor Location: ", path)
 observer = Observer()
 observer.schedule(FileChangeEventHandler(), path, recursive=True)
 observer.start()

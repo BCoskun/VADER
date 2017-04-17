@@ -1,6 +1,28 @@
-version: '2'
+version: '3'
 services:
   web:
     build: .
+    image: vaderweb:1.0
     ports:
-     - "5000:5000"
+      - 5000
+    networks:
+      - front-tier
+      - back-tier
+
+  lb:
+    image: dockercloud/haproxy
+    ports:
+      - 8091:80
+    links:
+      - web
+    networks:
+      - front-tier
+      - back-tier
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 
+
+networks:
+  front-tier:
+    driver: bridge
+  back-tier:
+    driver: bridge

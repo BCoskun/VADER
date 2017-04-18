@@ -8,11 +8,14 @@ services:
     networks:
       - front-tier
       - back-tier
-
+    environment:
+      - BALANCE=leastconn
+      
   lb:
     image: dockercloud/haproxy
     ports:
       - 8091:80
+      - 1936:1936                 # Exposing Stat Page for Load Balancer..
     links:
       - web
     networks:
@@ -20,6 +23,8 @@ services:
       - back-tier
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock 
+    environment:
+      - STATS_AUTH=secret:password  #Stat Page UserName and Password      
 
 networks:
   front-tier:
